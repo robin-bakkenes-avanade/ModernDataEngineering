@@ -54,6 +54,31 @@ For the purpose of this exercise we will use blob storage as input.
 12. Under Path pattern, enter input/.
 13. Leave the default values in the rest of the fields.
 
+![Alt text](https://docs.microsoft.com/en-us/learn/data-ai-cert/transform-data-with-azure-stream-analytics/media/4-create-blob-input.png)
+
+14. **Save**
+
+### Configure Output
+Stream Analytics jobs support various output sinks, such as Azure Blob storage, SQL Database, and Event Hubs. The documentation lists all output types.
+
+In this exercise, we'll use Blob storage as the output sink for our Stream Analytics job.
+
+1. In the Azure portal , create a new storage account, just like you did in the previous exercise.
+2. On the **Basics** tab, select your new **bootcamp-streamanalytics** resource group.
+3. For the account name, use the prefix streamsink, and add a numeric suffix. You might need to try a few combinations to find a unique name in Azure.
+4. Use default values for all other fields.
+5. **Review + Create**
+6. Go to output section of your Stream Analytcs Jobs
+7. Under Job topology, select Outputs.
+8. Select Add, and from the list select Blob storage.
+9. In the Output alias field, type streamoutput. This is your own name for the output.
+10. Select the streamsink storage account you created in the previous section.
+11. Under Container, select Create new. Give the container a unique name, such as learn-container.
+12. Under Path pattern, enter output/.
+13. Leave the default values in the rest of the fields.
+14. Select Save.
+
+
 
 
 
