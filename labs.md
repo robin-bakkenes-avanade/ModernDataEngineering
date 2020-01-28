@@ -15,7 +15,7 @@ The aim of this lab is to setup and configure the basics of a Stream Analytics s
 ![Alt text](https://docs.microsoft.com/en-us/learn/data-ai-cert/transform-data-with-azure-stream-analytics/media/3-add-jobs.png)
 
 5. Enter a job name, such as **Bootcamp**.
-6. Create a new resource group named bootcamp-streamanalytics.
+6. Create a new resource group named **bootcamp-streamanalytics**.
 7. Note the **Location** setting. Ideally, you should create your job in the same location as any storage accounts you use as a source or destination.
 8. Ensure that the hosting environment is Cloud.
 9. Set the streaming units to 1 to minimize the cost for this test.
