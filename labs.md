@@ -78,6 +78,58 @@ In this exercise, we'll use Blob storage as the output sink for our Stream Analy
 13. Leave the default values in the rest of the fields.
 14. Select Save.
 
+### Data
+In order to test your Stream Analytics job you will have to create some sample data. 
+
+#### Create Sample File
+Start by creating a simple input file named input.json on your local computer. The file has these contents:
+
+```
+{
+    "City" : "Maassluis",
+    "Coordinates" :
+    {
+        "Latitude": 51,
+        "Longitude": 4
+    },
+    "Census" :
+    {
+        "Population" : 33000,
+        "Municipality" : "Maassluis",
+        "Region" : "Zuid-Holland"
+    }
+}
+```
+#### Upload Sample File
+Next, upload the JSON file to a Blob storage container:
+
+1. Open the Azure portal.
+2. Go to your source Blob storage account.
+3. Select the streamsource Blob storage account you created earlier.
+4. Under Blob service, select Blobs.
+5. Select the learn-container container you created. It should be empty.
+6. Select Upload. Next to the Files input, select the folder icon, and then select the JSON file.
+7. Expand the Advanced options if they're not expanded already.
+8. In the Upload to folder field, enter input/[YYYY-MM-DD]. Here, YYYY-MM-DD is the current date and needs to be entered using the data format you noted in the exercise "Configure the Azure Stream Analytics job input".
+9. Leave the default values in the other fields.
+10. Select Upload.
+
+After the file is uploaded, you should see the input folder in the container. Select it to explore the blob hierarchy and see the data.
+
+#### Set up Output Folder
+1. Go to your destination Blob storage account.
+2. From the choices on the overview page, select Storage Explorer (preview).
+3. On the right, go to BLOB CONTAINERS.
+4. Select the container you created.
+5. From the menu above the container details, select New Folder. If you don't see this option, open the More list to find it.
+6. For the folder name, type output, and then select Create. Here you're creating a placeholder. Azure won't show the folder until you add a file to it.
+
+### Write Transformation Query
+An Azure Stream Analytics query transforms an input data stream and produces an output. Queries are written in a language like SQL that's a subset of the Transact-SQL (T-SQL) language.
+
+In this exercise, we'll transform the input data in a simple way to demonstrate the transformation-query capabilities that Stream Analytics exposes.
+
+Now you're ready to write your transformation query. You'll need to pull the coordinates from the input data and write them to the output. You'll do that by using a `SELECT` statement. Find the query options online or by using the link in this module's summary.
 
 
 
