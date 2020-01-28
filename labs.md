@@ -147,6 +147,37 @@ FROM streaminput
 4. **Save**
 5. Test the query -> Select **Test**
 
+### Start Stream Analytics Job
+1. On your job menu, select Overview to go back to the main overview page.
+2. From the menu at the top of the page, select Start.
+3. Select Now > Start.
 
+![Alt text](https://docs.microsoft.com/en-us/learn/data-ai-cert/transform-data-with-azure-stream-analytics/media/7-run-job.png)
 
+The job should transition to the Starting state. After a few seconds, it will move to the Running state. The job will run for a few minutes and then finish in the Completed state. You can watch these transitions on the job's Overview page.
+
+![Alt text](https://docs.microsoft.com/en-us/learn/data-ai-cert/transform-data-with-azure-stream-analytics/media/7-running-job.png)
+
+### Review Your Results
+After a Stream Analytics job finishes, you can view the results in the Azure portal. On the job's Overview pane, you see the status information, the location and resource group where the service is provisioned, and the subscription details. Here you can also confirm when the service was created and started.
+
+To see the job's results:
+
+1. In the Azure portal, go to your output storage account (streamsink).
+2. Select Storage Explorer (preview).
+3. On the right, under BLOB CONTAINERS, open your container (learn-container).
+4. Go to the output folder and select Download.
+
+![Alt text](https://docs.microsoft.com/en-us/learn/data-ai-cert/transform-data-with-azure-stream-analytics/media/8-query-result.png)
+
+```
+{
+    "city" : "Maassluis",
+    "latitude" : 51,
+    "longitude" : 4
+}
+```
+Keep all the files and resources, you will need the output 
+
+**END OF LAB01**
 
