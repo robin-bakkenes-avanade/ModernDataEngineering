@@ -45,7 +45,6 @@ For the purpose of this exercise we will use blob storage as input.
 ![Alt text](https://docs.microsoft.com/en-us/learn/data-ai-cert/transform-data-with-azure-stream-analytics/media/4-add-storage-account.png)
 
 5.  **Review + Create**
-
 6.  Navigate to the created Stream Analytics Job you created in the previous section.
 7.  Under Job topology, select Inputs.
 8.  Select Add stream input and select Blob storage from the list.
