@@ -48,10 +48,10 @@ For the purpose of this exercise we will use blob storage as input.
 6.  Navigate to the created Stream Analytics Job you created in the previous section.
 7.  Under Job topology, select Inputs.
 8.  Select Add stream input and select Blob storage from the list.
-9.  In Input alias field, type streaminput. This display name identifies the input.
+9.  In Input alias field, type **streaminput**. This display name identifies the input.
 10. Select the storage account you created earlier. Remember, it starts with streamsrc.
-11. Under Container, select Create new. Give the container a unique name, such as bootcamp-container.
-12. Under Path pattern, enter input/.
+11. Under Container, select Create new. Give the container a unique name, such as **bootcamp-container**.
+12. Under Path pattern, enter **input/**.
 13. Leave the default values in the rest of the fields.
 
 ![Alt text](https://docs.microsoft.com/en-us/learn/data-ai-cert/transform-data-with-azure-stream-analytics/media/4-create-blob-input.png)
@@ -65,16 +65,16 @@ In this exercise, we'll use Blob storage as the output sink for our Stream Analy
 
 1. In the Azure portal , create a new storage account, just like you did in the previous exercise.
 2. On the **Basics** tab, select your new **bootcamp-streamanalytics** resource group.
-3. For the account name, use the prefix streamsink, and add a numeric suffix. You might need to try a few combinations to find a unique name in Azure.
+3. For the account name, use the prefix **streamsink**, and add a numeric suffix. You might need to try a few combinations to find a unique name in Azure.
 4. Use default values for all other fields.
 5. **Review + Create**
 6. Go to output section of your Stream Analytcs Jobs
 7. Under Job topology, select Outputs.
 8. Select Add, and from the list select Blob storage.
-9. In the Output alias field, type streamoutput. This is your own name for the output.
+9. In the Output alias field, type **streamoutput**. This is your own name for the output.
 10. Select the streamsink storage account you created in the previous section.
-11. Under Container, select Create new. Give the container a unique name, such as bootcamp-container.
-12. Under Path pattern, enter output/.
+11. Under Container, select Create new. Give the container a unique name, such as **bootcamp-container**.
+12. Under Path pattern, enter **output/**.
 13. Leave the default values in the rest of the fields.
 14. Select Save.
 
@@ -110,7 +110,7 @@ Next, upload the JSON file to a Blob storage container:
 5. Select the bootcamp-container container you created. It should be empty.
 6. Select Upload. Next to the Files input, select the folder icon, and then select the JSON file.
 7. Expand the Advanced options if they're not expanded already.
-8. In the Upload to folder field, enter input/[YYYY-MM-DD]. Here, YYYY-MM-DD is the current date and needs to be entered using the data format you noted in the exercise "Configure the Azure Stream Analytics job input".
+8. In the Upload to folder field, enter input/[YYYY-MM-DD]. Here, YYYY-MM-DD is the current date and needs to be entered using the data format you noted in the exercise "Configure the Azure Stream Analytics job input". **Example: input/2020/01/01**
 9. Leave the default values in the other fields.
 10. Select Upload.
 
@@ -122,7 +122,7 @@ After the file is uploaded, you should see the input folder in the container. Se
 3. On the right, go to BLOB CONTAINERS.
 4. Select the container you created.
 5. From the menu above the container details, select New Folder. If you don't see this option, open the More list to find it.
-6. For the folder name, type output, and then select Create. Here you're creating a placeholder. Azure won't show the folder until you add a file to it.
+6. For the folder name, type **output**, and then select Create. Here you're creating a placeholder. Azure won't show the folder until you add a file to it.
 
 ### Write Transformation Query
 An Azure Stream Analytics query transforms an input data stream and produces an output. Queries are written in a language like SQL that's a subset of the Transact-SQL (T-SQL) language.
@@ -131,7 +131,7 @@ In this exercise, we'll transform the input data in a simple way to demonstrate 
 
 Now you're ready to write your transformation query. You'll need to pull the coordinates from the input data and write them to the output. You'll do that by using a `SELECT` statement. Find the query options online or by using the link in this module's summary.
 
-1. Use the search field to find your Stream Analytics job in the Azure portal. Its name is SimpleTransfomer.
+1. Use the search field to find your Stream Analytics job in the Azure portal. Its name is **Bootcamp**(Unless you named it different).
 2. Under Job topology, select Query.
 3. In the Query pane, add this query:
 
