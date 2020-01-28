@@ -131,6 +131,21 @@ In this exercise, we'll transform the input data in a simple way to demonstrate 
 
 Now you're ready to write your transformation query. You'll need to pull the coordinates from the input data and write them to the output. You'll do that by using a `SELECT` statement. Find the query options online or by using the link in this module's summary.
 
+1. Use the search field to find your Stream Analytics job in the Azure portal. Its name is SimpleTransfomer.
+2. Under Job topology, select Query.
+3. In the Query pane, add this query:
+
+```
+SELECT City,
+    Coordinates.Latitude,
+    Coordinates.Longitude
+INTO streamoutput
+FROM streaminput
+```
+![Alt text](https://docs.microsoft.com/en-us/learn/data-ai-cert/transform-data-with-azure-stream-analytics/media/6-write-query.png)
+
+4. **Save**
+5. Test the query -> Select **Test**
 
 
 
