@@ -30,5 +30,32 @@ The aim of this lab is to setup and configure the basics of a Stream Analytics s
 Now that we have a Stream Analytics job, we're ready to set up the job to serve a streaming workload. We'll start with the input.
 
 ### Configure Input
+When configuring the imput a choice can be made between three different input types:
+- Azure Event Hubs
+- Azure IoT Hub
+- Azure Blob storage
 
-1. Make 
+For the purpose of this exercise we will use blob storage as input.
+
+1. Start in the main azure screen to create a storage account.
+2. On the Basics tab, select the new bootcamp-streamanalytics resource group.
+3. Give the Azure Storage account a unique name. Try using the prefix streamsrc with your initials or a numeric value. This value has to be unique across all Azure storage accounts, so you might have to try a few combinations to find one that works for you. The portal displays a green check mark next to the name if it's valid.
+4. Check the location. To avoid paying to transfer data between regions, set the location to the same one as the job. Altough not necessary it is best practice to safe costs as long as there is no specific business case.
+
+![Alt text](https://docs.microsoft.com/en-us/learn/data-ai-cert/transform-data-with-azure-stream-analytics/media/4-add-storage-account.png)
+
+5.  **Review + Create**
+
+6.  Navigate to the created Stream Analytics Job you created in the previous section.
+7.  Under Job topology, select Inputs.
+8.  Select Add stream input and select Blob storage from the list.
+9.  In Input alias field, type streaminput. This display name identifies the input.
+10. Select the storage account you created earlier. Remember, it starts with streamsrc.
+11. Under Container, select Create new. Give the container a unique name, such as learn-container.
+12. Under Path pattern, enter input/.
+13. Leave the default values in the rest of the fields.
+
+
+
+
+
