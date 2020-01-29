@@ -1,6 +1,6 @@
 # Modern Data Engineering Bootcamp
 
-## Lab 01: Streaming Analytics
+## Lab 01: Stream Analytics
 
 ### Introduction
 The aim of this lab is to setup and configure the basics of a Stream Analytics setup. This means creating a Stream Analytics job, configuring both input and output, writing a transformation query ending in starting the job and reviewing results. 
