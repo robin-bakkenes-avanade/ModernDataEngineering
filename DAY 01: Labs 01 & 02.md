@@ -186,6 +186,16 @@ Keep all the files and resources, you will need the output
 ### Setting up Azure Resources
 1. 1. Open the Azure portal  and sign in to your account.
 2. In the left pane, select All services.
-3. In the search box, type Stream Analytics and select Stream Analytics jobs from the results.
+3. In the search box, type SQL Database and select Azure SQL Database from the results.
 4. On the Stream Analytics jobs page, select Add.
+5. Select the resource group you created in Lab 02.
+6. Enter a database name, for instance with prefix **mdebootcamp**.
+7. Create a sql server to host your database. 
+    - Insert SQL servername, for instance with prefix **mdebootcamp**.
+    - Insert Login name
+    - Insert and confirm password
+    - Set location to West Europe
+    - Press OK.
+8. In the Compute + storage section select **Basic**
+9. Review + Create 
 
