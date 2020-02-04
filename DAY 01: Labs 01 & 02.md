@@ -185,7 +185,7 @@ Keep all the files and resources, you will need the output
 In this lab we will setup a SQL database to load in data stored on a blob. First step is to import data from a CSV file. For this we can re-use part of the resources from the previous lab. For the blob use the output blob or container. 
 
 ### Setting up Azure Resources
-1. 1. Open the Azure portal  and sign in to your account.
+1. Open the Azure portal  and sign in to your account.
 2. In the left pane, select All services.
 3. In the search box, type SQL Database and select Azure SQL Database from the results.
 4. On the Stream Analytics jobs page, select Add.
@@ -203,6 +203,7 @@ In this lab we will setup a SQL database to load in data stored on a blob. First
 ### Create flatfile on blob
 1. Open text editor en create a .csv file with city, latitude, longtitude as headers
 2. Create 3 or 4 sample rows.
+3. Upload the csv file to the blob storage in the **output** container you created in Lab01
 
 ### Configuring SQL
 First step in the proces is setting up a Master Key.
@@ -215,21 +216,22 @@ First step in the proces is setting up a Master Key.
 ```
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'MDEb00tcamp';
 ```
+After creating a master key you need to create a database scoped credential. 
 ```
-CREATE DATABASE SCOPED CREDENTIAL bootcampblob
+CREATE DATABASE SCOPED CREDENTIAL <insert name>
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
-SECRET = 'sv=2019-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2020-02-04T02:27:48Z&st=2020-02-03T18:27:48Z&spr=https&sig=jdKQk5IfGg0EVt%2F17oAv%2FDnZHHyFS1xdZO2Pa8vWfq0%3D';
+SECRET = '<SAS withouth the '?' part>';
 ```
 ```
-CREATE EXTERNAL DATA SOURCE xxxstor
+CREATE EXTERNAL DATA SOURCE <insert name>
 WITH (  TYPE = BLOB_STORAGE, 
-        LOCATION = 'https://streamsinkblboutput.blob.core.windows.net', 
-        CREDENTIAL= bootcampblob);
+        LOCATION = 'https://<insert blob name>.blob.core.windows.net', 
+        CREDENTIAL= <insert name of database scoped credential>);
 ```
 ```
 BULK INSERT City
-FROM 'bootcamp-container/output.csv' --random is the container name
-WITH (  DATA_SOURCE = 'xxxstor',
+FROM '<insert containername>/<csv name>.csv' 
+WITH (  DATA_SOURCE = '<insert data source name>',
         FORMAT='CSV', CODEPAGE = 65001, --UTF-8 encoding
         FIRSTROW=2,
         TABLOCK); 
