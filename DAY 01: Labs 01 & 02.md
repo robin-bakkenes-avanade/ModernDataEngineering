@@ -211,12 +211,12 @@ First step in the proces is setting up a Master Key.
 2. Login into your SQL database
     - You might need to whitelist your IP to login into your database
     - You might want to configure a SQL admin for your Azure SQL server
-3. After you have loggedin trough the portal or management studio use the following code to create a Master Key:
+3. After you have logged in trough the portal or management studio use the following code to create a Master Key:
 ```
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'MDEb00tcamp';
 ```
 
-After creating a master key you need to create a database scoped credential. Used the following code to create this. You will need to give de credential a name and look up the Shared Access Signature from your output blob.
+After creating a master key you need to create a database scoped credential. Used the following code to create this. You will need to give the credential a name and look up the Shared Access Signature from your output blob.
 
 ```
 CREATE DATABASE SCOPED CREDENTIAL <insert name>
@@ -224,7 +224,7 @@ WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
 SECRET = '<SAS withouth the '?' part>';
 ```
 
-After the credential a data source needs to be defined. The code below will allow you to define te blob where you need the credential you just created. Look up you blob name.
+After the credential a data source needs to be defined. The code below will allow you to define te blob where you need the credential you just created. Lookup your blob name.
 
 ```
 CREATE EXTERNAL DATA SOURCE <insert name>
