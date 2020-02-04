@@ -182,6 +182,7 @@ Keep all the files and resources, you will need the output
 **END OF LAB01**
 
 ## Lab 02: Azure SQL - Load external data
+In this lab we will setup a SQL database to load in data stored on a blob. First step is to import data from a CSV file. For this we can re-use part of the resources from the previous lab. For the blob use the output blob or container. 
 
 ### Setting up Azure Resources
 1. 1. Open the Azure portal  and sign in to your account.
@@ -199,3 +200,37 @@ Keep all the files and resources, you will need the output
 8. In the Compute + storage section select **Basic**
 9. Review + Create 
 
+### Create flatfile on blob
+1. Open text editor en create a .csv file with city, latitude, longtitude as headers
+2. Create 3 or 4 sample rows.
+
+### Configuring SQL
+First step in the proces is setting up a Master Key.
+
+1. Go to your azure portal
+2. Login into your SQL database
+    - You might need to whitelist your IP to login into your database
+    - You might want to configure a SQL admin for your Azure SQL server
+3. After you have loggedin trough the portal or management studio use the following code to create a Master Key:
+```
+CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'MDEb00tcamp';
+```
+```
+CREATE DATABASE SCOPED CREDENTIAL bootcampblob
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
+SECRET = 'sv=2019-02-02&ss=bfqt&srt=sco&sp=rwdlacup&se=2020-02-04T02:27:48Z&st=2020-02-03T18:27:48Z&spr=https&sig=jdKQk5IfGg0EVt%2F17oAv%2FDnZHHyFS1xdZO2Pa8vWfq0%3D';
+```
+```
+CREATE EXTERNAL DATA SOURCE xxxstor
+WITH (  TYPE = BLOB_STORAGE, 
+        LOCATION = 'https://streamsinkblboutput.blob.core.windows.net', 
+        CREDENTIAL= bootcampblob);
+```
+```
+BULK INSERT City
+FROM 'bootcamp-container/output.csv' --random is the container name
+WITH (  DATA_SOURCE = 'xxxstor',
+        FORMAT='CSV', CODEPAGE = 65001, --UTF-8 encoding
+        FIRSTROW=2,
+        TABLOCK); 
+```
