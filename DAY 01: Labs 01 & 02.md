@@ -200,7 +200,7 @@ In this lab we will setup a SQL database to load in data stored on a blob. First
 8. Review + Create 
 
 ### Create flatfile on blob
-1. Open text editor en create a .csv file with city, latitude, longtitude as headers
+1. Open text editor and create a .csv file with city, latitude, longtitude as headers
 2. Create 3 or 4 sample rows.
 3. Upload the csv file to the blob storage in the **output** container you created in Lab01
 
