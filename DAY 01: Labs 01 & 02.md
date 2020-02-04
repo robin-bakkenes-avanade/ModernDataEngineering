@@ -216,18 +216,35 @@ First step in the proces is setting up a Master Key.
 ```
 CREATE MASTER KEY ENCRYPTION BY PASSWORD = 'MDEb00tcamp';
 ```
-After creating a master key you need to create a database scoped credential. 
+
+After creating a master key you need to create a database scoped credential. Used the following code to create this. You will need to give de credential a name and look up the Shared Access Signature from your output blob.
+
 ```
 CREATE DATABASE SCOPED CREDENTIAL <insert name>
 WITH IDENTITY = 'SHARED ACCESS SIGNATURE',
 SECRET = '<SAS withouth the '?' part>';
 ```
+
+After the credential a data source needs to be defined. The code below will allow you to define te blob where you need the credential you just created. Look up you blob name.
+
 ```
 CREATE EXTERNAL DATA SOURCE <insert name>
 WITH (  TYPE = BLOB_STORAGE, 
         LOCATION = 'https://<insert blob name>.blob.core.windows.net', 
         CREDENTIAL= <insert name of database scoped credential>);
 ```
+The last thing you need before importing the csv is a SQL tabel to store the data. You can use the following code or create your own table.
+
+```
+CREATE TABLE City (
+City NVARCHAR(150),
+Latitude int,
+Longitude int
+)
+```
+
+You are now ready to import data from the csv you created. Use the following code to insert data in to your sql table.
+
 ```
 BULK INSERT City
 FROM '<insert containername>/<csv name>.csv' 
