@@ -9,10 +9,10 @@ Azure Data Explorer is a fast and highly scalable data exploration service for l
 
 If you don't have an Azure subscription, create a free Azure account before you begin.
 
-####Sign in to the Azure portal
+#### Sign in to the Azure portal
 Sign in to the Azure portal.
 
-####Create a cluster
+#### Create a cluster
 Create an Azure Data Explorer cluster with a defined set of compute and storage resources in an Azure resource group.
 1. Select the Create a resource button (+) in the upper-left corner of the portal.
 2. Search for Azure Data Explorer.
@@ -29,7 +29,7 @@ Create an Azure Data Explorer cluster with a defined set of compute and storage 
 
 ![Alt text](https://docs.microsoft.com/en-us/azure/data-explorer/media/create-cluster-database-portal/notification-resource.png)
 
-####Create a database
+#### Create a database
 You're now ready for the second step in the process: database creation.
 
 1. On the Overview tab, select Create database.
@@ -43,7 +43,7 @@ You're now ready for the second step in the process: database creation.
 
 3. Select Create to create the database. Creation typically takes less than a minute. When the process is complete, you're back on the cluster Overview tab.
 
-####Run basic commands in the database
+#### Run basic commands in the database
 Now that you have a cluster and database, you can run queries and commands. You don't have any data in the database yet, but you can still see how the tools work.
 
 1. Under your cluster, select Query. Paste the command .show databases into the query window, then select **Run**.
@@ -58,7 +58,7 @@ The result set shows **TestDatabase**, the only database in the cluster.
 
 This command returns an empty result set because you don't have any tables yet. You add a table in the next article in this series.
 
-####Stop and restart the cluster
+#### Stop and restart the cluster
 You can stop and restart a cluster depending on business needs.
 
 1. To stop the cluster, at the top of the Overview tab, select Stop.When the cluster is stopped, data is not available for queries, and you can't ingest new data.
@@ -67,7 +67,7 @@ You can stop and restart a cluster depending on business needs.
 
 When the cluster is restarted, it takes about 10 minutes for it to become available (like when it was originally provisioned). It takes additional time for data to load into the hot cache.
 
-####Clean up resources
+#### Clean up resources
 If you plan to follow other quickstarts and tutorials, keep the resources you created. Otherwise, clean up your resource group, to avoid incurring costs.
 
 1.In the Azure portal, select Resource groups on the far left, and then select the resource group that contains your Data Explorer cluster.
