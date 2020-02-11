@@ -1,0 +1,25 @@
+# Modern Data Engineering Bootcamp
+
+## Lab 04: Data Explorer
+
+### Create an Azure Data Explorer cluster and database
+
+Azure Data Explorer is a fast and highly scalable data exploration service for log and telemetry data. To use Azure Data Explorer, you first create a cluster, and create one or more databases in that cluster. Then you ingest (load) data into a database so that you can run queries against it. In this quickstart, you create a cluster and a database.
+
+If you don't have an Azure subscription, create a free Azure account before you begin.
+
+**Sign in to the Azure portal**
+Sign in to the Azure portal.
+
+**Create a cluster**
+Create an Azure Data Explorer cluster with a defined set of compute and storage resources in an Azure resource group.
+1. Select the Create a resource button (+) in the upper-left corner of the portal.
+2. Search for Azure Data Explorer.
+
+![Alt text](https://docs.microsoft.com/en-us/azure/data-explorer/media/create-cluster-database-portal/search-resources.png)
+
+3. Under Azure Data Explorer, at the bottom of the screen, select Create.
+4. Fill out the basic cluster details with the following information.
+
+![Alt text](https://docs.microsoft.com/en-us/azure/data-explorer/media/create-cluster-database-portal/create-cluster-form2.png)
+
