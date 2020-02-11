@@ -73,3 +73,32 @@ If you plan to follow other quickstarts and tutorials, keep the resources you cr
 1.In the Azure portal, select Resource groups on the far left, and then select the resource group that contains your Data Explorer cluster.
 
 2. Select Delete resource group to delete the entire resource group. If using an existing resource group, you can choose to only delete the Data Explorer cluster.
+
+### Ingest sample data into Azure Data Explorer
+
+**Ingest data**
+The StormEvents sample data set contains weather-related data from the National Centers for Environmental Information.
+
+1. Sign in to https://dataexplorer.azure.com.
+2. In the upper-left of the application, select **Add cluster**.
+3. In the **Add cluster** dialog box, enter your cluster URL in the form ```https://<ClusterName>.<Region>.kusto.windows.net/```, then select **Add**.
+4. Paste in the following command, and select **Run** to create a StormEvents table.
+```
+.create table StormEvents (StartTime: datetime, EndTime: datetime, EpisodeId: int, EventId: int, State: string, EventType: string, InjuriesDirect: int, InjuriesIndirect: int, DeathsDirect: int, DeathsIndirect: int, DamageProperty: int, DamageCrops: int, Source: string, BeginLocation: string, EndLocation: string, BeginLat: real, BeginLon: real, EndLat: real, EndLon: real, EpisodeNarrative: string, EventNarrative: string, StormSummary: dynamic)
+```
+5. Paste in the following command, and select **Run** to ingest data into StormEvents table.
+```
+.ingest into table StormEvents h'https://kustosamplefiles.blob.core.windows.net/samplefiles/StormEvents.csv?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (ignoreFirstRecord=true)
+```
+6. After ingestion completes, paste in the following query, select the query in the window, and select **Run**.
+```
+StormEvents
+| sort by StartTime desc
+| take 10
+```
+
+The query returns the following results from the ingested sample data.
+
+![Alt text](https://docs.microsoft.com/en-us/azure/data-explorer/media/ingest-sample-data/query-results.png)
+
+
